@@ -19,7 +19,7 @@ env:
     - BROWSER_PROVIDER_READY_FILE=/tmp/tunnel-ready
 
 install:
-  - npm config set registry http://23.251.144.68
+  # - npm config set registry http://23.251.144.68
   # Run npm install twice, because it is flaky.
   - npm install || npm install
 

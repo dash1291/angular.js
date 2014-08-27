@@ -7,8 +7,8 @@ module.exports = function(config, specificOptions) {
     browsers: ['Chrome'],
     browserDisconnectTimeout: 100 * 1000,
     browserDisconnectTolerance: 2,
-    captureTimeout: 60 * 1000,
-    browserNoActivityTimeout: 4 * 60 * 1000,
+    captureTimeout: 2 * 60 * 1000,
+    browserNoActivityTimeout: 6 * 60 * 1000,
 
 
     // SauceLabs config for local development.

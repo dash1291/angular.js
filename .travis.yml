@@ -13,10 +13,8 @@ env:
     - JOB=e2e TEST_TARGET=jquery BROWSER_PROVIDER=sl
     - JOB=e2e TEST_TARGET=doce2e BROWSER_PROVIDER=sl
   global:
-    - SAUCE_USERNAME=angular-ci
-    - SAUCE_ACCESS_KEY=9b988f434ff8-fbca-8aa4-4ae3-35442987
-    - BROWSER_STACK_USERNAME=VojtaJina
-    - BROWSER_STACK_ACCESS_KEY=ve8DdEwSkBpXWpZ1JQCQ
+    - secure: "cKJURNx6BlASpSuel2segPINQvvx20x98kwwtd1wnsISVbnfI9MQCxM7M39PILFZyhwDg/9uw6Kgh/OZAYyDbw88UW7gyqzvfb3JpkA7/bZU5RJnneWnsuC8xi+jcmV3neiNLylHNfRAxpSYqNk7W9BrxH8LpRr6/dXFG6fVFLQ="
+    - secure: "NrBu+pdROzvQF3sbEi0KK2QfdMxYsbuvP4r2a6bpljfcvdCXTQFHqUmW5k9X7JUaFD0mrFLGo0+P53E2TW9VsVSKDRsbcaoro4GPYt/J5g7gizbiU0z+P8N8yrHR7siOC6fWeGYS78cw+NO+22ronVSnsDnkznOIiv/zi1dgWOY="
     - LOGS_DIR=/tmp/angular-build/logs
     - BROWSER_PROVIDER_READY_FILE=/tmp/tunnel-ready
 

@@ -2018,6 +2018,8 @@
       }
     },
     "karma": {
+      "from": "git://github.com/dash1291/karma.git",
+      "resolved": "git://github.com/dash1291/karma.git#f576be265ec8a0c2bf88dc62383ca460b2992058",
       "version": "0.12.9",
       "dependencies": {
         "di": {

@@ -28,7 +28,7 @@ install:
 
 before_script:
   - mkdir -p $LOGS_DIR
-  #- ./lib/sauce/sauce_connect_setup.sh
+  - ./lib/browser-stack/start-tunnel.sh
   - npm install -g grunt-cli
   - grunt package
   - ./scripts/travis/wait_for_browser_provider.sh

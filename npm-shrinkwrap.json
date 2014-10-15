@@ -4046,6 +4046,8 @@
     },
     "karma": {
       "version": "0.12.23",
+      "from": "git://github.com/dhimil/karma.git",
+      "resolved": "git://github.com/dhimil/karma.git#d6ddbb8757d824af3af09c1af36c320c0542ceb1",
       "dependencies": {
         "di": {
           "version": "0.0.1"

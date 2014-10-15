@@ -116,7 +116,7 @@ module.exports = function(config, specificOptions) {
     config.logLevel = config.LOG_DEBUG;
     config.transports = ['websocket', 'xhr-polling'];
     config.captureTimeout = 0; // rely on SL timeout
-    config.sauceLabs.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
+    config.browserStack.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
 
     config.browserStack.build = buildLabel;
     config.browserStack.startTunnel = false;

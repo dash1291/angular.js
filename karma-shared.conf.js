@@ -24,7 +24,7 @@ module.exports = function(config, specificOptions) {
     // BrowserStack config for local development.
     browserStack: {
       project: 'AngularJS',
-      name: specificOptions.testName,
+      name: 'Karma test - with new changes',
       startTunnel: true,
       timeout: 600 // 10min
     },

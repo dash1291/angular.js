@@ -17,6 +17,7 @@ env:
     - secure: "NrBu+pdROzvQF3sbEi0KK2QfdMxYsbuvP4r2a6bpljfcvdCXTQFHqUmW5k9X7JUaFD0mrFLGo0+P53E2TW9VsVSKDRsbcaoro4GPYt/J5g7gizbiU0z+P8N8yrHR7siOC6fWeGYS78cw+NO+22ronVSnsDnkznOIiv/zi1dgWOY="
     - LOGS_DIR=/tmp/angular-build/logs
     - BROWSER_PROVIDER_READY_FILE=/tmp/tunnel-ready
+    - TRAVIS_JOB_NUMBER=19
 
 install:
   # - npm config set registry http://23.251.144.68

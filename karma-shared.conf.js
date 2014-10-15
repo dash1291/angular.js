@@ -7,9 +7,10 @@ module.exports = function(config, specificOptions) {
     logLevel: config.LOG_INFO,
     logColors: true,
     browsers: ['Chrome'],
-    browserDisconnectTimeout: 10000,
+    browserDisconnectTimeout: 60000,
     browserDisconnectTolerance: 2,
-    browserNoActivityTimeout: 30000,
+    browserNoActivityTimeout: 60000,
+    browserCaptureTimeout: 60000,
 
 
     // SauceLabs config for local development.

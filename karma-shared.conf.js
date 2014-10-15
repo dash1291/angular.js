@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(config, specificOptions) {
   config.set({
     frameworks: ['jasmine'],
@@ -5,10 +7,9 @@ module.exports = function(config, specificOptions) {
     logLevel: config.LOG_INFO,
     logColors: true,
     browsers: ['Chrome'],
-    browserDisconnectTimeout: 100 * 1000,
+    browserDisconnectTimeout: 10000,
     browserDisconnectTolerance: 2,
-    captureTimeout: 2 * 60 * 1000,
-    browserNoActivityTimeout: 6 * 60 * 1000,
+    browserNoActivityTimeout: 30000,
 
 
     // SauceLabs config for local development.
@@ -23,7 +24,7 @@ module.exports = function(config, specificOptions) {
     // BrowserStack config for local development.
     browserStack: {
       project: 'AngularJS',
-      name: specificOptions.testName,
+      name: 'Karma test - with new changes',
       startTunnel: true,
       timeout: 600 // 10min
     },
@@ -113,25 +114,20 @@ module.exports = function(config, specificOptions) {
     var buildLabel = 'TRAVIS #' + process.env.TRAVIS_BUILD_NUMBER + ' (' + process.env.TRAVIS_BUILD_ID + ')';
 
     config.logLevel = config.LOG_DEBUG;
-    config.captureTimeout = 0; // rely on SL/BS timeout
+    config.transports = ['websocket', 'xhr-polling'];
+    config.captureTimeout = 0; // rely on SL timeout
 
-    // BrowserStack on Travis
-    if (process.env.BROWSER_PROVIDER === 'bs') {
-      config.browserStack.build = buildLabel;
-      config.browserStack.startTunnel = false;
-      config.browserStack.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
-    }
+    config.browserStack.build = buildLabel;
+    config.browserStack.startTunnel = false;
 
-    // SauceLabs on Travis
-    if (process.env.BROWSER_PROVIDER === 'sl') {
-      config.sauceLabs.build = buildLabel;
-      config.sauceLabs.startConnect = false;
-      config.sauceLabs.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
+    config.sauceLabs.build = buildLabel;
+    config.sauceLabs.startConnect = false;
+    config.sauceLabs.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
+    config.sauceLabs.recordScreenshots = true;
 
-      // TODO(vojta): remove once SauceLabs supports websockets.
-      // This speeds up the capturing a bit, as browsers don't even try to use websocket.
-      config.transports = ['xhr-polling'];
-    }
+    // TODO(vojta): remove once SauceLabs supports websockets.
+    // This speeds up the capturing a bit, as browsers don't even try to use websocket.
+    config.transports = ['xhr-polling'];
 
     // Debug logging into a file, that we print out at the end of the build.
     config.loggers.push({
@@ -165,7 +161,7 @@ module.exports = function(config, specificOptions) {
 
       // ignore web-server's 404s
       if (log.categoryName === 'web-server' && log.level.levelStr === config.LOG_WARN &&
-          IGNORED_404.some(function(ignoredLog) {return msg.indexOf(ignoredLog) !== -1})) {
+          IGNORED_404.some(function(ignoredLog) {return msg.indexOf(ignoredLog) !== -1;})) {
         return;
       }
 

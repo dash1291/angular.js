@@ -72,8 +72,8 @@ module.exports = function(config, specificOptions) {
         browser: 'chrome',
         os: 'OS X',
         os_version: 'Mountain Lion'
-      },
-      'BS_Safari': {
+      }
+      /*'BS_Safari': {
         base: 'BrowserStack',
         browser: 'safari',
         os: 'OS X',
@@ -105,7 +105,7 @@ module.exports = function(config, specificOptions) {
         browser_version: '11.0',
         os: 'Windows',
         os_version: '8.1'
-      }
+      }*/
     }
   });
 
@@ -120,7 +120,7 @@ module.exports = function(config, specificOptions) {
     config.browserStack.build = buildLabel;
     config.browserStack.startTunnel = false;
 
-    config.sauceLabs.build = buildLabel;
+    /*config.sauceLabs.build = buildLabel;
     config.sauceLabs.startConnect = false;
     config.sauceLabs.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
     config.sauceLabs.recordScreenshots = true;
@@ -128,12 +128,12 @@ module.exports = function(config, specificOptions) {
     // TODO(vojta): remove once SauceLabs supports websockets.
     // This speeds up the capturing a bit, as browsers don't even try to use websocket.
     config.transports = ['xhr-polling'];
-
+    
     // Debug logging into a file, that we print out at the end of the build.
     config.loggers.push({
       type: 'file',
       filename: process.env.LOGS_DIR + '/' + (specificOptions.logFile || 'karma.log')
-    });
+    });*/
   }
 
 

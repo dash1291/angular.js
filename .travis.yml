@@ -9,14 +9,13 @@ branches:
 env:
   matrix:
     - JOB=unit BROWSER_PROVIDER=bs
-    - JOB=e2e TEST_TARGET=jqlite BROWSER_PROVIDER=sl
-    - JOB=e2e TEST_TARGET=jquery BROWSER_PROVIDER=sl
-    - JOB=e2e TEST_TARGET=doce2e BROWSER_PROVIDER=sl
+    - JOB=e2e TEST_TARGET=jqlite
+    - JOB=e2e TEST_TARGET=jquery
   global:
+    - LOGS_DIR=/tmp/angular-build/logs
+    - BROWSER_PROVIDER_READY_FILE=/tmp/sauce-connect-ready
     - secure: "cKJURNx6BlASpSuel2segPINQvvx20x98kwwtd1wnsISVbnfI9MQCxM7M39PILFZyhwDg/9uw6Kgh/OZAYyDbw88UW7gyqzvfb3JpkA7/bZU5RJnneWnsuC8xi+jcmV3neiNLylHNfRAxpSYqNk7W9BrxH8LpRr6/dXFG6fVFLQ="
     - secure: "NrBu+pdROzvQF3sbEi0KK2QfdMxYsbuvP4r2a6bpljfcvdCXTQFHqUmW5k9X7JUaFD0mrFLGo0+P53E2TW9VsVSKDRsbcaoro4GPYt/J5g7gizbiU0z+P8N8yrHR7siOC6fWeGYS78cw+NO+22ronVSnsDnkznOIiv/zi1dgWOY="
-    - LOGS_DIR=/tmp/angular-build/logs
-    - BROWSER_PROVIDER_READY_FILE=/tmp/tunnel-ready
 
 install:
   # - npm config set registry http://23.251.144.68
@@ -29,7 +28,7 @@ install:
 
 before_script:
   - mkdir -p $LOGS_DIR
-  - ./scripts/travis/start_browser_provider.sh
+  #- ./lib/sauce/sauce_connect_setup.sh
   - npm install -g grunt-cli
   - grunt package
   - ./scripts/travis/wait_for_browser_provider.sh
